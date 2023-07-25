@@ -1,17 +1,28 @@
 import Header from "./components/Header/Header";
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import 'semantic-ui-css/semantic.min.css'
+import "semantic-ui-css/semantic.min.css";
+import { Container } from "semantic-ui-react";
+import { useContext } from "react";
+import { RegionsContext } from "./utils/context";
+import RegionPage from "./components/RegionPage/RegionPage";
 
 export default function MyApp() {
-  const [regions, setRegions] = useState<Array<string>>([
-    "Africa",
-    "Americas",
-    "Europe",
-    "Oceania",
-    "Asia",
-    "Antarctic",
-  ]);
-  return <Header regions={regions} />;
+  const regions = useContext(RegionsContext);
+
+  return (
+    <Container>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Navigate to={regions[0].toLowerCase()} />} />
+        {regions.map((r) => (
+          <Route
+            key={r}
+            path={`/${r.toLowerCase()}`}
+            element={<RegionPage />}
+          ></Route>
+        ))}
+      </Routes>
+    </Container>
+  );
 }
