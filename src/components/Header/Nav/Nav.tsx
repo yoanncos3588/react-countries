@@ -7,7 +7,7 @@ export default function Nav() {
   //charge les régions depuis context
   const regions = useContext(RegionsContext);
 
-  const [activeItem, setActiveItem] = useState();
+  const [activeItem, setActiveItem] = useState<string>();
 
   const handleItemClick = (name: string | undefined) => {
     if (name !== undefined) {
@@ -20,7 +20,7 @@ export default function Nav() {
       {regions.map((r) => (
         <Menu.Item
           as={NavLink}
-          to={r.toLowerCase()}
+          to={`/region/${r.toLowerCase()}`}
           key={r}
           name={r}
           active={activeItem === r}

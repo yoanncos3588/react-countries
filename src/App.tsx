@@ -15,10 +15,14 @@ export default function MyApp() {
       <Header />
       <Routes>
         <Route path="/" element={<Navigate to={regions[0].toLowerCase()} />} />
+        <Route
+          path="/region"
+          element={<Navigate to={regions[0].toLowerCase()} />}
+        />
         {regions.map((r) => (
           <Route
             key={r}
-            path={`/${r.toLowerCase()}`}
+            path={`/region/:name`}
             element={<RegionPage />}
           ></Route>
         ))}
