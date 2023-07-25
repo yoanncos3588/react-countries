@@ -1,4 +1,5 @@
-import { Theme, Button } from "react-daisyui";
+import Nav from "./Nav/Nav";
+import { Button } from "semantic-ui-react";
 
 interface HeaderProps {
   regions: Array<string>;
@@ -8,8 +9,9 @@ export default function Header({ regions }: HeaderProps) {
   return (
     <header>
       <h1>React Countries</h1>
-      <Button color="primary">Click me, dark!</Button>
-      <nav></nav>
+      <Nav />
+      <Button primary>Primary</Button>
+      <Button secondary>Secondary</Button>
     </header>
   );
 }
