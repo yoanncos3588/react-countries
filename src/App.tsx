@@ -6,6 +6,7 @@ import { Container } from "semantic-ui-react";
 import { useContext } from "react";
 import { RegionsContext } from "./utils/context";
 import RegionPage from "./components/RegionPage/RegionPage";
+import CountryPage from "./components/CountryPage/CountryPage";
 
 export default function MyApp() {
   const regions = useContext(RegionsContext);
@@ -26,6 +27,7 @@ export default function MyApp() {
             element={<RegionPage />}
           ></Route>
         ))}
+        <Route path="/country/:name" element={<CountryPage />} />
       </Routes>
     </Container>
   );
