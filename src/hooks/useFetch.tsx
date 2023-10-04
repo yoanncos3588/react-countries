@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { DataInterface } from "../interfaces";
 
 export default function useFetch(url: string): DataInterface {

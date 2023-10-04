@@ -25,6 +25,12 @@ export interface CountryNameInterface {
   nativeName: object;
 }
 
+export interface SubRegionsInterface {
+  key: string;
+  text: string;
+  value: string;
+}
+
 // UTILS
 
 export interface DataInterface extends ErrorInterface {
